@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "617009152460",
+    "project_id": "kriyetaaa",
+    "storage_bucket": "kriyetaaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617009152460:android:25c3786c989e2c9ba11d69",
+        "android_client_info": {
+          "package_name": "com.example.kriyeta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHRieA5_fz0ZFRwgY-4_g8ApcX9y3zrmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
