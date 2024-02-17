@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pedometer/pedometer.dart';
 import 'circularsteps.dart';
+import 'profile.dart';
+import 'activity.dart';
+import 'analysis.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,10 +15,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _widgetOptions = <Widget>[
     BuildBody(),
-    Text('Friends'),
-    Text('Marketplace'),
-    Text('Notifications'),
-    Text('Menu'),
+    AnalysisScreen(),
+    ActivityScreen(), // Replace with ActivityScreen()
+    MyProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -24,20 +26,24 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pranic Balance'),
+        title: Center(child: Text('Ashtang')),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications),
-            onPressed: () {},
+            icon: Icon(Icons.account_circle),
+            onPressed: () {
+              // Navigate to profile screen
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MyProfileScreen()));
+            },
           ),
+          SizedBox(width: 16.0),
         ],
       ),
-      body:  Center(
+      body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -65,13 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
         currentIndex: _selectedIndex,
       ),
-
     );
   }
-
-
-
-
 }
 
 class StepCounter {
@@ -91,7 +92,6 @@ class StepCounter {
     return _steps;
   }
 }
-
 
 class BuildBody extends StatefulWidget {
   const BuildBody({super.key});
@@ -247,15 +247,16 @@ class _BuildBodyState extends State<BuildBody> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                BuildCard(name: 'Steps', icon:Icons.directions_walk),
+                BuildCard(name: 'Steps', icon: Icons.directions_walk),
                 SizedBox(height: 10.0),
-                BuildCard(name: 'Calories', icon:Icons.local_fire_department),
+                BuildCard(name: 'Calories', icon: Icons.local_fire_department),
               ],
             ),
           ],
         ),
       ),
-    );;
+    );
+    ;
   }
 }
 
@@ -279,7 +280,7 @@ class _BuildCardState extends State<BuildCard> {
 
   @override
   Widget build(BuildContext context) {
-    return    Container(
+    return Container(
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Colors.grey[200],
@@ -325,7 +326,7 @@ class _BuildCardState extends State<BuildCard> {
           ),
         ],
       ),
-    );;
+    );
+    ;
   }
 }
-
